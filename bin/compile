@@ -35,8 +35,9 @@ mkdir -p "$APT_STATE_DIR/lists/partial"
 
 echo ""
 echo ""
-echo "---- Spigot on Heroku ----"
-echo "by Tanashi - MineShift Ltd"
+echo "---- Watefall on Heroku ----"
+echo "by DavidNexuss"
+echo "Thank you Tanashi for dropbox sync"
 echo "Thank you for installing my refix buildpack"
 echo "Thank you jkutner for the original buildpack"
 echo ""
@@ -57,15 +58,15 @@ apt-get $APT_OPTIONS -y --force-yes -d install --reinstall s3cmd | indent
 echo "-----> Installing screen... "
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall screen | indent
 
-echo "-----> Installing nano... "
-apt-get $APT_OPTIONS -y --force-yes -d install --reinstall nano | indent
-
 echo "-----> Installing DDClient... "
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall ddclient | indent
 
 echo "-----> Installing Htop... "
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall htop | indent
 
+echo "-----> Installing mycli... "
+
+apt-get $APT_OPTIONS -y --force-yes -d install --reinstall mycli | indent
 sleep 3
 
 echo "-----> Almost there..."
@@ -96,12 +97,11 @@ unzip ngrok.zip -d $BUILD_DIR/bin > /dev/null 2>&1
 
 echo "done"
 
-minecraft_version=${MINECRAFT_VERSION:-"1.8.8-R0.1-SNAPSHOT-latest"}
-minecraft_url=${PAPER:-"https://papermc.io/api/v1/paper/1.13.2/554/download"}
-
-echo -n "-----> Installing PaperClipMC ${minecraft_version}... "
-curl -o spigot.jar -s -L $minecraft_url
-mv spigot.jar $BUILD_DIR/spigot.jar
+waterfall_version=${WATERFALL_VERSION:"1.13/273"}
+waterfall_url="https://papermc.io/api/v1/waterfall/${waterfall_version}/download"
+echo -n "-----> Installing PaperClipMC ${waterfall_version}... "
+curl -o waterfall.jar -s -L $waterfall_url
+mv waterfall.jar $BUILD_DIR/waterfall.jar
 
 echo "done"
 
