@@ -1,0 +1,11 @@
+#!/bin/bash
+
+HOST=remotemysql.com
+DBNAME=BqlOcNnU0u
+PASSWD=DnrwMEbjYs
+USER=BqlOcNnU0u
+PORT=3306
+
+QUERY="SELECT * FROM servers"
+
+mycli -e "$QUERY" -h $HOST -P $PORT -u $USER -p $PASSWD $DBNAME

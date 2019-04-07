@@ -1,0 +1,32 @@
+#!/bin/bash
+out=$(./server_tables)
+array=(${out// / })
+scount=0
+fname=config.yml
+
+echo "servers:" >> $fname
+for i in "${!array[@]}"
+do
+
+	temp="${array[$i]%\"}"
+	temp="${temp#\"}"
+	
+	count=$(($i + 3 ))
+	count2=$(($count % 4))
+	
+
+	if (($i > 4 && count2 == 1))
+	then
+		scount=$(($scount + 1))
+		
+		echo "		motd: $scount" >> $fname
+		echo "		address: $temp" >> $fname
+		echo "		restricted: false" >> $fname
+	fi
+
+	if (($i > 4 && count2 == 0))
+	then
+		echo "	$temp:" >> $fname
+	fi
+done
+echo "player_limit: -1" >> $fname
