@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-public_ip= `wget http://ipecho.net/plain -O - -q ; echo`
+public_ip=`wget http://ipecho.net/plain -O - -q ; echo`
 waterfall_port=25577
 port=${1:-${PORT:-8080}}
 
@@ -89,8 +89,8 @@ esac
 
 ## INIT WATERFALL CONFIG FILES
 echo "-----> Dumping server configuration"
-./write_servers
-echo "$(./server_tables)"
+~/./write_servers
+echo "$(~/./server_tables)"
 
 ## END WATERFALL CONFIG FILES
 echo "-----> Starting: Waterfall on port ${waterfall_port}"
