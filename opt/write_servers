@@ -19,14 +19,14 @@ do
 	then
 		scount=$(($scount + 1))
 		
-		echo "		motd: $scount" >> $fname
-		echo "		address: $temp" >> $fname
-		echo "		restricted: false" >> $fname
+		echo "    motd: a$scount" >> $fname
+		echo "    address: $temp" >> $fname
+		echo "    restricted: false" >> $fname
 	fi
 
 	if (($i > 4 && count2 == 0))
 	then
-		echo "	$temp:" >> $fname
+		echo "  $temp:" >> $fname
 	fi
 done
 echo "player_limit: -1" >> $fname
