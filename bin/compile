@@ -67,11 +67,6 @@ apt-get $APT_OPTIONS -y --force-yes -d install --reinstall htop | indent
 echo "-----> Installing Vim... "
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall vim | indent
 
-echo "-----> Installing python-pip... "
-apt-get $APT_OPTIONS -y --force-yes -d install --reinstall python-pip | indent
-
-echo "-----> Installing mycli... "
-pip install mycli
 sleep 3
 
 echo "-----> Almost there..."
