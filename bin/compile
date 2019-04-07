@@ -110,7 +110,7 @@ mkdir -p $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/refresh ]        && cp $OPT_DIR/refresh $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/ngrokgetip ]        && cp $OPT_DIR/ngrokgetip $BUILD_DIR
 [ ! -f $BUILD_DIR/server_tables ]        && cp $OPT_DIR/server_tables $BUILD_DIR
-[ ! -f $BUILD_DIR/write_servers ]        && cp $OPT_DIR/write_server $BUILD_DIR
+[ ! -f $BUILD_DIR/write_servers ]        && cp $OPT_DIR/write_servers $BUILD_DIR
 
 
 chmod +x $BUILD_DIR/bin/minecraft
