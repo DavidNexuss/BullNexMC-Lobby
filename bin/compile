@@ -64,6 +64,19 @@ apt-get $APT_OPTIONS -y --force-yes -d install --reinstall ddclient | indent
 echo "-----> Installing Htop... "
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall htop | indent
 
+echo "-----> Installing vim..."
+
+mkdir ~/vim
+cd ~/vim
+
+# Staically linked vim version compiled from https://github.com/ericpruitt/static-vim
+# Compiled on Jul 20 2017
+curl 'https://s3.amazonaws.com/bengoa/vim-static.tar.gz' | tar -xz
+
+export VIMRUNTIME="$HOME/vim/runtime"
+export PATH="$HOME/vim:$PATH"
+cd -
+
 sleep 3
 
 echo "-----> Almost there..."
