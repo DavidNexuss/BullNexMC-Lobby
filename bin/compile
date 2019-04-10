@@ -35,7 +35,7 @@ mkdir -p "$APT_STATE_DIR/lists/partial"
 
 echo ""
 echo ""
-echo "---- Watefall on Heroku ----"
+echo "---- Waterfall on Heroku ----"
 echo "by DavidNexuss"
 echo "Thank you Tanashi for dropbox sync"
 echo "Thank you for installing my refix buildpack"
@@ -64,8 +64,18 @@ apt-get $APT_OPTIONS -y --force-yes -d install --reinstall ddclient | indent
 echo "-----> Installing Htop... "
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall htop | indent
 
-echo "-----> Installing Vim... "
-apt-get $APT_OPTIONS -y --force-yes -d install --reinstall vim | indent
+echo "-----> Installing vim..."
+
+mkdir ~/vim
+cd ~/vim
+
+# Staically linked vim version compiled from https://github.com/ericpruitt/static-vim
+# Compiled on Jul 20 2017
+curl 'https://s3.amazonaws.com/bengoa/vim-static.tar.gz' | tar -xz
+
+export VIMRUNTIME="$HOME/vim/runtime"
+export PATH="$HOME/vim:$PATH"
+cd -
 
 sleep 3
 
@@ -99,7 +109,7 @@ echo "done"
 
 waterfall_version=${WATERFALL_VERSION:-"1.13/273"}
 waterfall_url="https://papermc.io/api/v1/waterfall/${waterfall_version}/download"
-echo -n "-----> Installing PaperClipMC ${waterfall_version}... "
+echo -n "-----> Installing WaterfallMC ${waterfall_version}... "
 curl -o waterfall.jar -s -L $waterfall_url
 mv waterfall.jar $BUILD_DIR/waterfall.jar
 

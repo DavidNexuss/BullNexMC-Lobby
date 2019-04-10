@@ -44,23 +44,11 @@ echo "-----> Starting Dropbox Sync..."
 ./backup.sh download backup.zip 
 unzip backup
 rm backup.zip
-eval "while true; do sleep 300; ./backup.sh delete backup.zip; rm backup.zip; zip -r backup locations.yml modules.yml modules plugins; ./backup.sh upload backup.zip /; done &"
+eval "while true; do sleep 300; ./backup.sh delete backup.zip; rm backup.zip; zip -r backup locations.yml modules.yml permissions.yml modules plugins; ./backup.sh upload backup.zip /; done &"
 echo " done"
 dropbox_pid=$!
 
 echo "-----> Configuring server settings..."
-# accept eula
-#echo eula=true > eula.txt
-# create server config - change anything if you want
-#echo "server-port=${mc_port}" >> /app/server.properties
-#echo "server-ip=127.0.0.1" >> /app/server.properties # add public ip to server
-# disable online mode for cracked players
-#echo "online-mode=false" >> /app/server.properties
-#echo "enable-command-block=true" >> /app/server.properties
-touch whitelist.json
-touch banned-players.json
-touch banned-ips.json
-touch ops.json
 
 echo "-----> Scaling dyno..."
 limit=$(ulimit -u)
