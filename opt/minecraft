@@ -44,7 +44,7 @@ echo "-----> Starting Dropbox Sync..."
 ./backup.sh download backup.zip 
 unzip backup
 rm backup.zip
-eval "while true; do sleep 300; ./backup.sh delete backup.zip; rm backup.zip; zip -r backup config.yml locations.yml modules.yml permissions.yml waterfall.yml modules plugins; ./backup.sh upload backup.zip /; done &"
+eval "while true; do sleep 300; ./backup.sh delete backup.zip; rm backup.zip; zip -r backup locations.yml modules.yml permissions.yml waterfall.yml modules plugins; ./backup.sh upload backup.zip /; done &"
 echo " done"
 dropbox_pid=$!
 
