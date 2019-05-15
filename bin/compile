@@ -123,12 +123,20 @@ mkdir -p $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/server_tables ]        && cp $OPT_DIR/server_tables $BUILD_DIR
 [ ! -f $BUILD_DIR/write_servers ]        && cp $OPT_DIR/write_servers $BUILD_DIR
 
+[ ! -f $BUILD_DIR/checkDNSPort ]        && cp $OPT_DIR/checkDNSPort $BUILD_DIR
+[ ! -f $BUILD_DIR/getRecordData ]        && cp $OPT_DIR/getRecordData $BUILD_DIR
+[ ! -f $BUILD_DIR/updateDNS ]        && cp $OPT_DIR/updateDNS $BUILD_DIR
+
 
 chmod +x $BUILD_DIR/bin/minecraft
 chmod +x $BUILD_DIR/bin/sync
 chmod +x $BUILD_DIR/bin/refresh
 chmod +x $BUILD_DIR/server_tables
 chmod +x $BUILD_DIR/write_servers
+
+chmod +x $BUILD_DIR/checkDNSPort
+chmod +x $BUILD_DIR/getRecordData
+chmod +x $BUILD_DIR/updateDNS
 
 sleep 5
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+KEY=1zJ9DDJ1pg79DhNKvcMUpN2p8zvvQY2S
+URL=https://api.dynu.com/v2/dns
+ID=8490924
+RECORD_ID=3517649
+curl -s -X GET $URL/$ID/record/$RECORD_ID \
+	-H "accept: application/json" \
+	-H "API-Key: $KEY" | python -m json.tool | grep "port" | awk '{print $2}'
