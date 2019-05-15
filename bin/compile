@@ -108,8 +108,9 @@ unzip ngrok.zip -d $BUILD_DIR/bin > /dev/null 2>&1
 echo "done"
 
 waterfall_version=${WATERFALL_VERSION:-"1.13/273"}
-waterfall_url="https://papermc.io/api/v1/waterfall/${waterfall_version}/download"
+waterfall_url=${WATERFALL:-"https://papermc.io/api/v1/waterfall/${waterfall_version}/download"}
 echo -n "-----> Installing WaterfallMC ${waterfall_version}... "
+echo -n "-----> ${waterfall_url}"
 curl -o waterfall.jar -s -L $waterfall_url
 mv waterfall.jar $BUILD_DIR/waterfall.jar
 
