@@ -76,7 +76,7 @@ eval "screen -L -h 2048 -dmS waterfall java -Xms${heap} -Xmx${heap} -jar waterfa
 main_pid=$!
 
 echo "-----> Updating IP to Dynu.com $(bash ngrokgetip)"
-bash updateDNSPort
+bash updateDNS
 echo "-----> Loading libraries... "
 
 echo "-----> Loading completed ..."
