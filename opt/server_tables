@@ -1,9 +1,9 @@
 #!/bin/bash
 
 HOST=remotemysql.com
-DBNAME=BqlOcNnU0u
-PASSWD=DnrwMEbjYs
-USER=BqlOcNnU0u
+DBNAME=dnlcatZsZQ
+PASSWD=R4DkDMYmbg
+USER=dnlcatZsZQ
 PORT=3306
 
 QUERY="SELECT * FROM servers"
